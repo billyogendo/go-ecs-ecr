@@ -59,7 +59,8 @@ make_task_def(){
 }
 
 push_ecr_image(){
-	eval $(aws ecr get-login --region us-east-1 --no-include-email)
+        #Hacky inclusion of yes
+	yes | eval $(aws ecr get-login --region us-east-1 --no-include-email)
 	docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/go-sample-webapp:$CIRCLE_SHA1
 }
 
