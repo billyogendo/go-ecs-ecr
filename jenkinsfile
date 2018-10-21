@@ -6,6 +6,18 @@ pipeline {
         checkout scm
     }
         
+    
+    stages {
+    stage('Connect to server') {
+        steps {
+            sh "ssh -t -t jenkins@10.x.x.xx"
+      
+           }
+   } 
+    
+    
+    
+    
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
@@ -14,7 +26,10 @@ pipeline {
             sh 'echo "Tests passed"'
     }     
      
-     
+     stage (‘Deploy’) {
+         steps {
+             sh ‘ssh user@server mkdir -p /var/www/example_deploy’
+             sh ‘scp -r user@server:/var/www/example_deploy’ 
       
        
-    }
+
