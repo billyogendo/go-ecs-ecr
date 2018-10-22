@@ -30,6 +30,7 @@ pipeline {
          steps {
              sh ‘ssh user@server mkdir -p /var/www/example_deploy’
              sh ‘scp -r user@server:/var/www/example_deploy’ 
-      
+             /* connecting to the server and create a directory.
+              * and coping the files to that directory */
        
 
