@@ -1,36 +1,14 @@
+
 pipeline {
-    agent any
-    stages('Clone repository') {
-         /* Let's make sure we have the repository cloned to our workspace */
-
-        checkout scm
-    }
-        
-    
+    agent { label 'slave' }
+    /* Slave resembles the server on which the job will be build on */
     stages {
-    stage('Connect to server') {
-        steps {
-            sh "ssh -t -t jenkins@10.x.x.xx"
-      
-           }
+         stage('Clone repository') {
+             steps {
+                 echo 'cloning'
+         /* Let's make sure we have the repository cloned to our workspace */
+       }
+     }
    } 
-    
-    
-    
-    
-    stage('Test image') {
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach ;-) */
-
-        app.inside {
-            sh 'echo "Tests passed"'
-    }     
-     
-     stage (‘Deploy’) {
-         steps {
-             sh ‘ssh user@server mkdir -p /var/www/example_deploy’
-             sh ‘scp -r user@server:/var/www/example_deploy’ 
-             /* connecting to the server and create a directory.
-              * and coping the files to that directory */
-       
-
+ }
+}
