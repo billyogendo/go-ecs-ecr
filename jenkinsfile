@@ -10,7 +10,7 @@ pipeline {
         stage('ssh') {
             steps {
                 sshagent (credentials: ['sshcredentials']) {
-                    sh 'ssh nelsonbillydeploy@69.248.2.173'
+                    sh 'ssh nelsonbilly@69.248.2.173'
                 }
             }
         }
