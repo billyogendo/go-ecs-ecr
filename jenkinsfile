@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('ssh') {
             steps {
-                sh "ssh nelsonbilly@69.248.2.173 'df -h' 
+                sh "ssh nelsonbilly@69.248.2.173 'df -h'"
                 
             }
           }
