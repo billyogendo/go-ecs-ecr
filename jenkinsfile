@@ -6,7 +6,7 @@ pipeline {
         stage('ssh') {
             steps {
                 sshagent (credentials: ['sshcredentials']) {
-                    sh 'ssh -o StrictHostKeyChecking=no nelsonbilly@69.248.2.173 '
+                    sh 'ssh -o StrictHostKeyChecking=no nelsonbilly@69.248.2.173 'df -h''
                 
             }
           }
