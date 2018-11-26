@@ -1,13 +1,15 @@
 
 pipeline {
     agent any
-
+    
     stages {
         stage('ssh') {
             steps {
-                sh "ssh -o StrictHostKeyChecking=no nelsonbilly@69.248.2.173 'df -h'"
+                sshagent (credentials: ['sshcredentials']) {
+                    sh 'ssh -o StrictHostKeyChecking=no nelsonbilly@69.248.2.173 '
                 
             }
           }
        }
     }
+}
