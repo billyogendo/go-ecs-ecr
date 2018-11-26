@@ -10,13 +10,13 @@ pipeline {
         stage('ssh') {
             steps {
                 sshagent (credentials: ['sshcredentials']) {
-                    sh 'ssh nelsonbilly@69.248.2.173'
+                    sh 'ssh nelsonbillydeploy@69.248.2.173'
                 }
             }
         }
         stage('checkout') {
             steps {
-                git branch: 'development', credentialsId: 'githubcredentials', url: 'https://github.com/billyogendo/go-ecs-ecr.git/'
+                git branch: 'development', credentialsId: 'U', url: 'https://github.com/billyogendo/go-ecs-ecr.git/'
                  sh "ls -a"
     
    
