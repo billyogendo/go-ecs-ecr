@@ -1,15 +1,27 @@
 
 pipeline {
     agent any
-    
+
+    environment {
+        USER_CREDENTIALS = credentials('sshcredentials')
+    }
+
     stages {
         stage('ssh') {
             steps {
                 sshagent (credentials: ['sshcredentials']) {
-                    sh 'ssh -o StrictHostKeyChecking=no nelsonbilly@69.248.2.173 'df -h''
-                
+                    sh 'ssh nelsonbilly@69.248.2.173'
+                }
             }
-          }
-       }
-    }
+        }
+        stage('checkout') {
+            steps {
+                git branch: 'development', credentialsId: 'githubcredentials', url: 'https://github.com/billyogendo/go-ecs-ecr.git/'
+                 sh "ls -a"
+    
+   
+               
+            }
+        }  
+     }
 }
