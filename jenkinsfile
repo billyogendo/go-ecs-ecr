@@ -3,15 +3,19 @@ pipeline {
     agent any
     
     environment {
-        USER_CREDENTIALS = credentials('sshssh')
+        USER_CREDENTIALS = credentials('mycredentials')
     }
  
     stages {
         stage('ssh') {
             steps {
-                sshagent (credentials: ['sshssh']) {
-                    sh 'ssh nelsonbilly@69.248.2.173'
+                sshagent (credentials: ['mycredentials']) {
+                     sh 'ssh coni@172.31.5.142'
+                    /*sh 'ssh nelsonbilly@69.248.2.173'*/
+                          
+                      git branch: 'master', credentialsId: 'mycredentials', url: ''
                 }
+              
             }
         }
       }  
