@@ -1,10 +1,12 @@
 
 pipeline {
     agent any
+    
+    withcredentials([[
+       credentialsId: 'sshssh'
+       ]])
 
-    environment {
-        USER_CREDENTIALS = credentials('sshssh')
-    }
+   
 
     stages {
         stage('ssh') {
