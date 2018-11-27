@@ -1,11 +1,11 @@
 
 pipeline {
     agent any
-    
+    environment {
     WithCredentials([[
        credentialsId: 'sshssh'
        ]])
-
+ }
    
 
     stages {
