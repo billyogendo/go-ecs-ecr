@@ -2,6 +2,8 @@
 pipeline {
     agent any
     
+    package org.jenkinsci.plugins.credentialsbinding.impl
+    
     environment {
         USER_CREDENTIALS = credentials('mycredentials')
     }
