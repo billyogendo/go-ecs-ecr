@@ -2,7 +2,7 @@
 pipeline {
     agent any
     
-    withcredentials([[
+    withCredentials([[
        credentialsId: 'sshssh'
        ]])
 
