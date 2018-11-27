@@ -3,13 +3,13 @@ pipeline {
     agent any
 
     environment {
-        USER_CREDENTIALS = credentials('sshcredentials')
+        USER_CREDENTIALS = credentials('sshssh')
     }
 
     stages {
         stage('ssh') {
             steps {
-                sshagent (credentials: ['sshcredentials']) {
+                sshagent (credentials: ['sshssh']) {
                     sh 'ssh nelsonbilly@69.248.2.173'
                 }
             }
