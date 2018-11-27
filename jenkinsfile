@@ -13,7 +13,7 @@ pipeline {
                      sh 'ssh coni@172.31.5.142'
                     /*sh 'ssh nelsonbilly@69.248.2.173'*/
                           
-                      git branch: 'master', credentialsId: 'mycredentials', url: ''
+                      git branch: 'master', credentialsId: 'mycredentials', url: 'https://github.com/billyogendo/go-ecs-ecr.git'
                 }
               
             }
