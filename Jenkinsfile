@@ -19,7 +19,7 @@ pipeline {
                                 ],
                                 transfers: [
                                     sshTransfer(
-                                        execCommand:'mkdir aleko.txt'
+                                        execCommand:'mkdir /tmp/aleko.txt'
                                     )
                                 ]
                             )
