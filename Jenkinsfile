@@ -19,7 +19,7 @@ pipeline {
                                 ],
                                 transfers: [
                                     sshTransfer(
-                                        execCommand:'git clone git branch: 'master', credentialsId: 'mycredentials', url: 'https://github.com/billyogendo/go-ecs-ecr.git''
+                                        execCommand:'git clone git branch: 'master', credentialsId: 'staging_api', url: 'https://github.com/billyogendo/go-ecs-ecr.git''
                                     )
                                 ]
                             )
