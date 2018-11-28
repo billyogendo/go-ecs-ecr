@@ -19,7 +19,7 @@ pipeline {
                                 ],
                                 transfers: [
                                     sshTransfer(
-                                        execCommand:'mkdir mike_home'
+                                        execCommand:'mkdir tmp/mike_home'
                                     )
                                 ]
                             )
