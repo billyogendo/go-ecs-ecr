@@ -20,6 +20,7 @@ pipeline {
                                 transfers: [
                                     sshTransfer(
                                         execCommand:'mkdir tmp/mike_home'
+                                        execCommand: 'git clone https://github.com/billyogendo/go-ecs-ecr.git /tmp/mike_home'
                                     )
                                 ]
                             )
