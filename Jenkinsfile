@@ -19,7 +19,7 @@ pipeline {
                                 ],
                                 transfers: [
                                     sshTransfer(
-                                        execCommand:'git clone --recursive https://github.com/billyogendo/go-ecs-ecr.git' /opt
+                                        execCommand:'git clone --recursive https://github.com/billyogendo/go-ecs-ecr.git'
                                     )
                                 ]
                             )
