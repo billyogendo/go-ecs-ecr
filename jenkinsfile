@@ -19,7 +19,7 @@ pipeline {
                                 ],
                                 transfers: [
                                     sshTransfer(
-                                        sh 'ssh coni@172.31.21.85'
+                                    sh 'ssh coni@172.31.21.85'
                                         execCommand: 'ls / >> /tmp/mike.txt'
                                     )
                                 ]
