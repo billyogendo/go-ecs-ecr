@@ -2,10 +2,11 @@ pipeline {
     agent none
     stages {
             stage('test') {
+                steps {
                 withCredentials([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
           sh ("sudo curl -u $USER:$PASSWORD -T $warPath 'https://artifactory.xxxxx.com:443/artifactory/Platform/$warFile'")
       }
-        
+       } 
             
         }
 
