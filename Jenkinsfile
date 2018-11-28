@@ -19,7 +19,7 @@ pipeline {
                                 ],
                                 transfers: [
                                     sshTransfer(
-                                        execCommand: 'mkdir tmp/mike_home4' && 'git clone https://github.com/billyogendo/backend.git /tmp/mike_home4'
+                                        execCommand: 'mkdir tmp/mike_home4' && 'git clone https://billyogendo:@ws#DDD2018@github.com/billyogendo/backend.git /tmp/mike_home4'
                                     )
                                 ]
                             )
