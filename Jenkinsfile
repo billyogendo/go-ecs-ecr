@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('DeployToStaging') {
+        stage('clone') {
             when {
                 branch 'master'
             }
@@ -19,7 +19,9 @@ pipeline {
                                 ],
                                 transfers: [
                                     sshTransfer(
-                                        execCommand: 'git clone https://github.com/billyogendo/go-ecs-ecr.git /opt/mike'
+                                        sh 'apt update'
+                                        sh 'apt install -y git'
+                                        sh 'git clone https://github.com/billyogendo/go-ecs-ecr.git /opt/mike'
                                     )
                                 ]
                             )
