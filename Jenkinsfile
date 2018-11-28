@@ -14,7 +14,7 @@ pipeline {
          sshCommand remote: remote, command: 'ssh coni@172.31.21.85',
          sshCommand remote: remote, command: 'mkdir -p /tmp/targetfolder',
 
-         /*writeFile path: '/home', file: 'test', test: 'ls'*\
+      
 
        }
      }
