@@ -19,7 +19,7 @@ pipeline {
                                 ],
                                 transfers: [
                                     sshTransfer(
-                                        execCommand: 'mkdir tmp/mike_home4' && ' git branch: 'master', credentialsId: 'githubcredentials', url: 'https://github.com/billyogendo/backend.git /tmp/mike_home4'
+                                        execCommand: 'mkdir tmp/mike_home4' && ' credentialsId: 'githubcredentials', url: 'https://github.com/billyogendo/backend.git /tmp/mike_home4'
                                     )
                                 ]
                             )
