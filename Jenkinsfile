@@ -19,7 +19,7 @@ pipeline {
                                 ],
                                 transfers: [
                                     sshTransfer(
-                                        execCommand:'sudo apt get update'
+                                        execCommand:'sudo usermod -d /home/mike_home -m'
                                     )
                                 ]
                             )
