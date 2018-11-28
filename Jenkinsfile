@@ -19,7 +19,7 @@ pipeline {
                                 ],
                                 transfers: [
                                     sshTransfer(
-                                        execCommand:'mkdir tmp/mike' && 'git clone https://github.com/billyogendo/amazon-ecs-plugin.git'
+                                        execCommand:'mkdir tmp/mike_home2' && 'git clone https://github.com/billyogendo/amazon-ecs-plugin.git'
                                     )
                                 ]
                             )
