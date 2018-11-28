@@ -2,12 +2,17 @@ pipeline {
     agent none
     stages {
             stage('test') {
-                steps {
-                withCredentials([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
-          sh ("sudo curl -u $USER:$PASSWORD -T $warPath 'https://artifactory.xxxxx.com:443/artifactory/Platform/$warFile'")
-      }
-       } 
-            
+            agent any
+            steps {
+                sshagent (credentials: ['webserver_login']) {
+    sh '''
+ssh -vv coni@34.245.222.45 echo testing connection || true
+ssh-add -L
+echo done running remote server test
+'''
+
+  }
+            }
         }
 
 
