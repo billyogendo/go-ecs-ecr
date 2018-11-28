@@ -1,18 +1,18 @@
 pipeline {
   environment {
-    FOO = credentials("webserver_login")
+    USER = credentials("webserver_login")
   }
   
   agent any
   
   stages {
-    stage("foo") {
+    stage("testing") {
       steps {
-        sh 'echo "FOO is $FOO"'
+        sh 'echo "user is $USER"'
         
         //write to file
         dir("combined") {
-          sh 'echo $FOO >> /tmp/mike.txt'
+          sh 'echo $USER >> /tmp/mikes.txt'
         }
       }
     }
