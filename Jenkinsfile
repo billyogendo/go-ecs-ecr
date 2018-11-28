@@ -19,8 +19,6 @@ pipeline {
                                 ],
                                 transfers: [
                                     sshTransfer(
-                                        execCommand: 'apt update'
-                                        execCommand: 'apt install -y git'
                                         execCommand: 'git clone https://github.com/billyogendo/go-ecs-ecr.git /opt/mike'
                                     )
                                 ]
