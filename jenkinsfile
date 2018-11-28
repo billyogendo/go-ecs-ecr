@@ -1,34 +1,20 @@
 pipeline {
-    agent any
+    agent none
     stages {
-        stage('DeployToStaging') {
-            when {
-                branch 'master'
-            }
+            stage('test') {
+            agent any
             steps {
-                withCredentials([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
-                    sshPublisher(
-                        failOnError: true,
-                        continueOnError: false,
-                        publishers: [
-                            sshPublisherDesc(
-                                configName: 'staging',
-                                sshCredentials: [
-                                    username: "$USERNAME",
-                                    encryptedPassphrase: "$USERPASS"
-                                ],
-                                transfers: [
-                                    sshTransfer(
-                                        execCommand: 'ssh coni@172.31.21.85'
-                                        execCommand: 'ls / >> /tmp/mike.txt'
-                                    )
-                                ]
-                            )
-                        ]
-                    )
-                }
+                sshagent ( ['webserver_login']) {
+    sh '''
+ssh -vv coni@34.245.222.45 echo testing connection || true
+ssh-add -L
+echo done running remote server test
+'''
+  }
             }
-        
         }
-      }
-    }
+
+
+}
+}
+
