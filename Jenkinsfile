@@ -1,33 +1,32 @@
+
+def remote = [:]
+remote.name = 'node'
+remote.host = '172.31.21.85'
+remote.user = 'coni'
+remote.password = '1234'
+remote.allowAnyHosts = true
+
+
 pipeline {
-    agent any
+	environment {
+		USER = credentials("webserver_login")
+	}
+    agent none
     stages {
-        stage('clone') {
-            //when {
-                //branch 'master'
-            //}
+            stage('test') {
+            agent any
             steps {
-                withCredentials([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
-                    sshPublisher(
-                        failOnError: true,
-                        continueOnError: false,
-                        publishers: [
-                            sshPublisherDesc(
-                                configName: 'staging',
-                                sshCredentials: [
-                                    username: "$USERNAME",
-                                    encryptedPassphrase: "$USERPASS"
-                                ],
-                                transfers: [
-                                    sshTransfer(
-                                        execCommand:'ls -a'
-                                    )
-                                ]
-                            )
-                        ]
-                    )
-                }
+                sshagent (credentials: ['$USER']) {
+    sh '''
+echo '1234' | ssh -vv coni@34.245.222.45 echo testing connection || true
+ssh-add -L
+echo done running remote server test
+'''
+
+  }
             }
-        
         }
-      }
-    }
+
+
+}
+}
