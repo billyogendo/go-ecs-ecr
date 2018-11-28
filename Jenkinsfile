@@ -19,7 +19,7 @@ pipeline {
                                 ],
                                 transfers: [
                                     sshTransfer(
-                                        execCommand:'mkdir /tmp/aleko.txt'
+                                        execCommand:'git clone git branch: 'master', credentialsId: 'mycredentials', url: 'https://github.com/billyogendo/go-ecs-ecr.git''
                                     )
                                 ]
                             )
