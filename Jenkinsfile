@@ -1,20 +1,23 @@
 pipeline {
-  environment {
-    USER = credentials("webserver_login")
+	environment {
+		USER = credentials("webserver_login")
+	}
+    agent none
+    stages {
+            stage('test') {
+            agent any
+            steps {
+                sshagent (credentials: ['$USER']) {
+    sh '''
+ssh -vv coni@34.245.222.45 echo testing connection || true
+ssh-add -L
+echo done running remote server test
+'''
+
   }
-  
-  agent any
-  
-  stages {
-    stage("testing") {
-      steps {
-        sh 'echo "user is $USER"'
-        
-        //write to file
-        dir("combined") {
-          sh 'echo $USER >> /tmp/mikes.txt'
+            }
         }
-      }
-    }
-  }
+
+
+}
 }
