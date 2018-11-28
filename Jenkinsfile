@@ -19,7 +19,7 @@ pipeline {
                                 ],
                                 transfers: [
                                     sshTransfer(
-                                        execCommand:'sudo usermod -d /home/mike_home -m'
+                                        execCommand:'mkdir /home/mike_home'
                                     )
                                 ]
                             )
